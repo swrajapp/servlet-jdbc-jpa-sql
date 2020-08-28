@@ -1,57 +1,60 @@
-package net.javaguides.usermanagement.model;
+package com.bookstore.entity;
 
-/**
- * User.java
- * This is a model class represents a User entity
- * @author Ramesh Fadatare
- *
- */
-public class User {
-	protected int id;
-	protected String name;
-	protected String email;
-	protected String country;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="book")
+public class Book {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="bookid")
+	private int bookid;
 	
-	public User() {
-	}
+	@Column(name="bookname")
+	private String bookname;
 	
-	public User(String name, String email, String country) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.country = country;
+	@Column(name="bookauthor")
+	private String bookauthor;
+	
+	@Column(name="publication")
+	private String publication;
+	
+	public int getBookId() {
+		return bookid;
 	}
 
-	public User(int id, String name, String email, String country) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.country = country;
+	public void setBookId(int id) {
+		this.id = bookid;
 	}
 
-	public int getId() {
-		return id;
+	public String getBookName() {
+		return bookname;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setBookName(String name) {
+		this.name = bookname;
 	}
-	public String getName() {
-		return name;
+
+	public String getBookAuthor() {
+		return bookauthor;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setBookAuthor(String author) {
+		this.author = bookauthor;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getPublication() {
+		return publication;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setPublication(String publication) {
+		this.publication = publication;
 	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
+
+
 }
